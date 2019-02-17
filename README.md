@@ -2,8 +2,9 @@
 
 Red Envelope is a gifting app. By using the Status.im chat you can gift to anyone in an instant.
 
-![qr-code](https://user-images.githubusercontent.com/659301/52908140-04fb3580-322d-11e9-8d34-8d9874a2f47d.png)
+![qr-code](https://user-images.githubusercontent.com/659301/52917683-9c06d280-32ab-11e9-9957-0a30db18a3d4.png)
 
-[Universal Link](https://get.status.im/extension/ipfs@QmSpZ5WFGifcJpWPGQfx6qf36WHBKAgQRXwQCF7QDHRLLh)
+[Universal Link](https://get.status.im/extension/ipfs@QmWebEJGdkZ35dHa8L2na2mrgYUxCuoVfe7LTn9R7Ezobq)
 
-[IPFS Link](https://ipfs.infura.io/ipfs/QmSpZ5WFGifcJpWPGQfx6qf36WHBKAgQRXwQCF7QDHRLLh/)
+[IPFS Link](https://ipfs.infura.io/ipfs/QmWebEJGdkZ35dHa8L2na2mrgYUxCuoVfe7LTn9R7Ezobq/)
+
