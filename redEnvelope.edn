@@ -1,0 +1,58 @@
+{meta {:name          "Red Envelope"
+       :description   "Red Envelope is a gifting app. By using the Status.im chat you can gift to anyone in an instant."
+       :documentation "redenvelope.me"}
+ 
+ views/preview
+ (let [{{{url :url} :params} :content} properties]
+   [button {:on-click [browser/open-url {:url url}]}
+     "open 🧧Envelope 🧧"])
+
+ views/short-preview
+ [text "Short Preview"]
+
+ views/announcement
+ [text "don't mind me funding an envelope ..."]
+
+ views/suggestion
+ [text "Type url"]
+
+ views/suggestion2
+ [text "amount of tokens"]
+  
+ views/suggestion3
+ [text "numbers of recipients"]
+
+ events/redirect
+ (let [{{{amount :amount num :num} :params} :content} properties]
+   [browser/open-url {:url "http://redenvelope.me/fundEnvelope/${amount}/${num}"}])
+ 
+ events/redirectDefault
+ (let [{amount :amount} properties]
+   [browser/open-url {:url "http://redenvelope.me/fundEnvelope/0/5"}])
+ 
+ hooks/chat.command.postRE
+ {:description   "Post Envelope"
+  :scope         #{:public-chats :personal-chats}
+  :preview       [preview]
+  :short-preview [short-preview]
+  :parameters    [{:id          :url
+                   :type        :text
+                   :placeholder "url"
+                   :suggestion  [suggestion]}]}
+
+ hooks/chat.command.fundWithParams
+ {:description   "Fund Envelope"
+  :scope         #{:public-chats :personal-chats}
+  :preview       [announcement]
+  :short-preview [announcement]
+  :on-send       [redirect]
+  :parameters    [{:id :amount :type :number :placeholder "amount" :suggestion [suggestion2]}{:id :num :type :number :placeholder "recipients" :suggestion [suggestion3]}]}
+
+ hooks/chat.command.fundRE
+ {:description   "Fund Envelope"
+  :scope         #{:public-chats :personal-chats}
+  :preview       [announcement]
+  :short-preview [announcement]
+  :on-send       [redirectDefault]
+  :parameters    []}}
+  
